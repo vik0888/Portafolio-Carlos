@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carlos Moreno Hernández | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #000;
+      color: #e5e5e5;
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Cinzel', serif;
+    }
+
+    .grain {
+      position: fixed;
+      inset: 0;
+      opacity: 0.05;
+      pointer-events: none;
+      background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+    }
+
+    .hero-overlay {
+      background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.8), #000);
+    }
+
+    .card {
+      background: rgba(10,10,10,0.75);
+      border: 1px solid #262626;
+      backdrop-filter: blur(10px);
+      transition: 0.4s ease;
+    }
+
+    .card:hover {
+      border-color: #5d0f1f;
+      transform: translateY(-4px);
+    }
+
+    .gallery img {
+      transition: 0.5s ease;
+    }
+
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .galeria img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 22px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+    }
+
+    .galeria img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+      padding: 20px;
+    }
+
+    .modal img {
+      max-width: 85%;
+      max-height: 85vh;
+      border-radius: 20px;
+      animation: zoom 0.3s ease;
+    }
+
+    /* Publication preview thumbnails */
+    .card .preview {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card .preview:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+    }
+
+    @keyframes zoom {
+      from {
+        transform: scale(0.7);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="grain"></div>
+
+  <nav class="fixed top-0 left-0 w-full z-50 bg-black/70 backdrop-blur-xl border-b border-neutral-800">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+      <h1 class="text-2xl tracking-[0.3em] text-white">CMH</h1>
+
+      <div class="hidden md:flex gap-8 text-sm tracking-wide">
+        <a href="#home" class="hover:text-red-300 transition">Home</a>
+        <a href="#resume" class="hover:text-red-300 transition">Resume</a>
+        <a href="#statement" class="hover:text-red-300 transition">Statement</a>
+        <a href="#work" class="hover:text-red-300 transition">Work</a>
+        <a href="#publications" class="hover:text-red-300 transition">Publications</a>
+        <a href="#portfolio" class="hover:text-red-300 transition">Gallery</a>
+        <a href="#interests" class="hover:text-red-300 transition">Interests</a>
+        <a href="#video" class="hover:text-red-300 transition">Video</a>
+      </div>
+    </div>
+  </nav>
+
+  <section id="home" class="relative min-h-screen flex items-center justify-center px-6 text-center overflow-hidden">
+    <img
+      src="imagenes/profile.jpg"
+      class="absolute inset-0 w-full h-full object-cover opacity-20"
+      alt="Background"
+    >
+
+    <div class="absolute inset-0 hero-overlay"></div>
+
+    <div class="relative z-10 max-w-5xl">
+      <p class="uppercase tracking-[0.4em] text-red-200 text-sm mb-6">
+        Creative Portfolio
+      </p>
+
+      <h1 class="text-5xl md:text-7xl font-light tracking-wide leading-[1.15] text-white mb-10 pt-20">
+        CARLOS MORENO
+        <br>
+        HERNÁNDEZ
+      </h1>
+
+      <p class="text-lg md:text-2xl text-neutral-300 mb-8 tracking-wide">
+        Creative Student • Musician • Writer • Future Psychology Student
+      </p>
+
+      <p class="max-w-2xl mx-auto text-neutral-400 leading-relaxed text-lg">
+        Welcome to my personal and professional webpage. This site represents my academic growth, artistic identity, and personal values through music, writing, psychology, and creative expression.
+
+I am passionate about understanding people, creating meaningful art, and constantly improving myself through new experiences and challenges.
+      </p>
+
+      <div class="mt-12 max-w-3xl mx-auto p-6 rounded-3xl border border-red-900/30 bg-black/40 backdrop-blur-md shadow-2xl">
+        <p class="italic text-lg md:text-xl text-neutral-300">
+          "Growth is not about avoiding mistakes, but about confronting them,
+          adapting, and moving forward with greater awareness."
+        </p>
+      </div>
+
+      <div class="mt-20 flex justify-center">
+        <div class="relative w-[320px] h-[420px] rounded-[2rem] overflow-hidden border border-neutral-800 shadow-2xl">
+          
+          <img
+            src="imagenes/profile.jpg"
+            alt="Carlos"
+            class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700"
+          >
+
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+
+          <div class="absolute bottom-0 left-0 w-full p-6 text-left">
+            <h3 class="text-2xl text-white font-light tracking-wide">
+              Carlos Moreno Hernández
+            </h3>
+
+            <p class="text-neutral-300 text-sm mt-2 tracking-wide">
+              Music • Psychology • Storytelling
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="resume" class="max-w-6xl mx-auto px-6 py-24">
+    <div class="mb-16">
+      <p class="uppercase tracking-[0.3em] text-red-200 text-sm mb-3">
+        Professional Background
+      </p>
+
+      <h2 class="text-5xl text-white">Resume / CV</h2>
+    </div>
+
+    <div class="space-y-6">
+      <details open class="card rounded-3xl p-8 shadow-xl group">
+        <summary class="text-2xl text-white cursor-pointer list-none flex justify-between items-center">
+          Carlos Moreno Hernández
+          <span class="text-red-300 text-xl group-open:rotate-45 transition">+</span>
+        </summary>
+
+        <div class="mt-8 space-y-10 text-neutral-400 leading-relaxed text-lg">
+          <div>
+            <h3 class="text-2xl text-white mb-4">Profile</h3>
+            <p>
+              Creative and ambitious student with strong interests in music,
+              literature, psychology, visual arts, and technology. Passionate
+              about artistic expression, storytelling, and personal growth.
+              Experienced in developing academic and creative projects, public
+              presentations, and collaborative work environments. Recognized
+              for adaptability, emotional intelligence, creativity, and strong
+              attention to detail.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-2xl text-white mb-4">Education</h3>
+            <p>
+              High School Student<br>
+              Currently pursuing secondary/high school education.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-2xl text-white mb-4">Skills</h3>
+            <ul class="space-y-2">
+              <li>• Creative Writing & Storytelling</li>
+              <li>• Academic Research</li>
+              <li>• AI-Assisted Project Development</li>
+              <li>• Guitar & String Instrument Performance</li>
+              <li>• Public Speaking & Presentations</li>
+              <li>• Emotional Intelligence & Communication</li>
+              <li>• Team Collaboration</li>
+              <li>• Artistic Design & Drawing</li>
+              <li>• Critical Thinking</li>
+              <li>• Problem Solving</li>
+              <li>• Adaptability & Leadership</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-2xl text-white mb-4">Languages</h3>
+            <ul class="space-y-2">
+              <li>• Spanish — Native</li>
+              <li>• English — Advanced / Fluent</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-2xl text-white mb-4">Experience & Projects</h3>
+
+            <div class="space-y-6">
+              <div>
+                <h4 class="text-xl text-red-200 mb-3">Music & Instrument Development</h4>
+                <ul class="space-y-2">
+                  <li>• More than 4 years of experience playing guitar.</li>
+                  <li>• Experience developing bass performance and musical theory fundamentals.</li>
+                  <li>• Knowledge of ukulele and mandolin performance.</li>
+                  <li>• Strong interest in learning additional musical instruments and expanding musical versatility.</li>
+                  <li>• Worked on acoustic arrangements, medleys, and musical adaptations inspired by contemporary and jazz-influenced artists.</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="text-xl text-red-200 mb-3">Artistic & Creative Development</h4>
+                <ul class="space-y-2">
+                  <li>• Experienced in drawing and visual artistic expression.</li>
+                  <li>• Interested in combining music, literature, and visual storytelling into creative projects.</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="text-xl text-red-200 mb-3">Literary Projects</h4>
+                <ul class="space-y-2">
+                  <li>• Author of an original literary project titled Chronicles of a Tulip (La Crónica de un Tulipán), focused on emotional symbolism, psychological depth, and poetic storytelling.</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="text-xl text-red-200 mb-3">Academic & Public Projects</h4>
+                <ul class="space-y-2">
+                  <li>• Participated in the school trip and academic experience at Interlinces in Zapopan.</li>
+                  <li>• Delivered presentations and academic projects for university-level audiences and educational institutions.</li>
+                  <li>• Developed multimedia, historical, and literary presentations for school and collaborative projects.</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="text-xl text-red-200 mb-3">Leadership & Personal Development</h4>
+                <ul class="space-y-2">
+                  <li>• Frequently supports classmates and close friends academically and emotionally.</li>
+                  <li>• Strong ability to communicate ideas clearly and empathetically.</li>
+                  <li>• Passionate about self-improvement, psychology, and emotional understanding.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-2xl text-white mb-4">Interests</h3>
+            <ul class="space-y-2">
+              <li>• Music Production & Performance</li>
+              <li>• Literature & Creative Writing</li>
+              <li>• Psychology & Philosophy</li>
+              <li>• Visual Arts & Drawing</li>
+              <li>• Fitness & Gym Training</li>
+              <li>• Technology & Artificial Intelligence</li>
+              <li>• Storytelling & Creative Media</li>
+              <li>• Learning New Instruments</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-2xl text-white mb-4">Strengths</h3>
+            <ul class="space-y-2">
+              <li>• Creative and analytical mindset</li>
+              <li>• Fast learner</li>
+              <li>• Strong adaptability</li>
+              <li>• Emotionally aware and empathetic</li>
+              <li>• Detail-oriented and perfectionist</li>
+              <li>• Independent and collaborative worker</li>
+              <li>• Strong artistic sensitivity</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section id="statement" class="border-y border-neutral-900 py-28 px-6">
+    <div class="max-w-5xl mx-auto">
+      <p class="uppercase tracking-[0.3em] text-red-200 text-sm mb-3">
+        Reflection & Growth
+      </p>
+
+      <h2 class="text-5xl mb-12 text-white">Personal Statement</h2>
+
+      <details open class="card rounded-[2rem] p-10 shadow-2xl group">
+        <summary class="text-2xl text-white cursor-pointer list-none flex justify-between items-center mb-6">
+          Read Personal Statement
+          <span class="text-red-300 text-2xl group-open:rotate-45 transition">+</span>
+        </summary>
+
+        <div class="space-y-6 text-neutral-400 leading-relaxed text-lg">
+          <p>I had always believed that if you practice long enough, a performance, or anything you want to do, would go exactly as planned. Weeks of practice, I thought, could protect you from almost anything. That illusion shattered when in the Mother’s Day Festival in high school, our play fell apart before we had even begun.</p>
+
+          <p>Alex, J’ and I had spent weeks practicing the piece, getting every transition and dynamic right. She was always an emotionally difficult girl, but I was barely getting to know her. I still didn't measure the impact it could have on my life. Our presentation of course mattered, but what happened just a few minutes away from the presentation, was where I took the first step to realize the emotional weight it would generate.</p>
+
+          <p>That mere day, the atmosphere was heavier than usual. She froze; in the worst time she could. Her mind went blank on sections we had played perfectly in rehearsal, and her breathing turned uneven. Time felt like a countdown to catastrophe. I stood there torn between focusing on the music and trying to calm her down.</p>
+
+          <p>First half went by in tense autopilot. Then, right in the middle of the most delicate section, my guitar suddenly cut out. The cable had a false contact, and I tried to move it right as fast as I could, but the damage was done. The flow between us broke completely.</p>
+
+          <p>In the next days, I kept replaying those moments. I had poured so much energy into supporting her that I hadn’t noticed how drained I was becoming. I used to think I had enough energy to help others without limits. That day showed me how dangerous that idea can be.</p>
+
+          <p>I started to understand that empathy isn’t about losing yourself in someone else’s struggles. It requires balance, self-awareness, and the courage to recognize your limits. I began reconnecting with music not as a duty, but as something that could ground me again.</p>
+
+          <p>Looking back, that imperfect performance changed how I see relationships and my own boundaries. It taught me to communicate more openly instead of assuming I knew what was best. These lessons are why I want to study psychology.</p>
+
+          <p>For more than a year, I was supporting her. But unfortunately, I left myself aside all that time. Now that she left me that lesson, I could realize that I wanted to support people in a more professional way.</p>
+
+          <p>This experience reflects the kind of student I strive to be: someone who does not collapse under pressure, but learns, adjusts, and moves forward with greater awareness. These are qualities I will bring into a rigorous and demanding academic environment.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section id="work" class="max-w-6xl mx-auto px-6 py-24">
+    <div class="mb-16">
+      <p class="uppercase tracking-[0.3em] text-red-200 text-sm mb-3">
+        Projects & Experience
+      </p>
+
+      <h2 class="text-5xl text-white">Relevant Work</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="card rounded-3xl p-8">
+        <h3 class="text-2xl mb-4 text-white">Chronicles of a Tulip</h3>
+        <p class="text-neutral-400 leading-relaxed">
+          Literary and symbolic storytelling project focused on emotional depth,
+          atmosphere, and introspection.
+        </p>
+      </div>
+
+      <div class="card rounded-3xl p-8">
+        <h3 class="text-2xl mb-4 text-white">Music Development</h3>
+        <p class="text-neutral-400 leading-relaxed">
+          Guitar performance, arrangements, and musical experimentation inspired
+          by cinematic and emotional composition.
+        </p>
+      </div>
+
+      <div class="card rounded-3xl p-8">
+        <h3 class="text-2xl mb-4 text-white">Academic Presentations</h3>
+        <p class="text-neutral-400 leading-relaxed">
+          Multimedia and collaborative projects involving literature, history,
+          and artistic analysis.
+        </p>
+      </div>
+
+      <div class="card rounded-3xl p-8">
+        <h3 class="text-2xl mb-4 text-white">Creative Storytelling</h3>
+        <p class="text-neutral-400 leading-relaxed">
+          Exploration of emotion, psychology, and narrative through visual and
+          written artistic expression.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications" class="max-w-6xl mx-auto px-6 py-24">
+
+  <div class="mb-16 text-center">
+    <p class="uppercase tracking-[0.3em] text-red-200 text-sm mb-3">
+      Social & Creative Presence
+    </p>
+
+    <h2 class="text-5xl text-white mb-6">
+      Featured Publications
+    </h2>
+
+    <p class="max-w-2xl mx-auto text-neutral-400 text-lg leading-relaxed">
+      A collection of artistic, personal, and creative publications shared through my social media presence and visual projects.
+    </p>
+  </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    <a href="https://www.instagram.com/p/DSFx_S0EcjG/?utm_source=ig_web_copy_link"
+       target="_blank"
+       class="card rounded-3xl overflow-hidden group">
+
+      <img src="imagenes/publication1.png" alt="Creative Publication I preview" class="preview">
+
+      <div class="p-6">
+        <h3 class="text-2xl text-white mb-3 group-hover:text-red-200 transition">
+          Creative Publication I
+        </h3>
+
+        <p class="text-neutral-400 leading-relaxed">
+          Live performance at a concert stage, capturing the band’s energy, stage lighting, and dynamic onstage presence.
+        </p>
+      </div>
+    </a>
+
+    <a href="https://www.instagram.com/p/DRSODETEZVq/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+       target="_blank"
+       class="card rounded-3xl overflow-hidden group">
+
+      <img src="imagenes/publication2.png" alt="Creative Publication II preview" class="preview">
+
+      <div class="p-6">
+        <h3 class="text-2xl text-white mb-3 group-hover:text-red-200 transition">
+          Creative Publication II
+        </h3>
+
+        <p class="text-neutral-400 leading-relaxed">
+          Band portrait shot in black attire, showcasing the group’s unified aesthetic and moody creative identity.
+        </p>
+      </div>
+    </a>
+
+    <a href="https://www.instagram.com/p/DRdo36-jDLN/?utm_source=ig_web_copy_link&"
+       target="_blank"
+       class="card rounded-3xl overflow-hidden group">
+
+      <img src="imagenes/publication3.png" alt="Creative Publication III preview" class="preview">
+
+      <div class="p-6">
+        <h3 class="text-2xl text-white mb-3 group-hover:text-red-200 transition">
+          Creative Publication III
+        </h3>
+
+        <p class="text-neutral-400 leading-relaxed">
+          Outdoor live session with the full band and drummer, conveying the energy of a public performance.
+        </p>
+      </div>
+    </a>
+
+    <a href="https://www.instagram.com/p/DX48mbOiG51/"
+       target="_blank"
+       class="card rounded-3xl overflow-hidden group">
+
+      <img src="imagenes/publication4.png" alt="Creative Publication IV preview" class="preview">
+
+      <div class="p-6">
+        <h3 class="text-2xl text-white mb-3 group-hover:text-red-200 transition">
+          Creative Publication IV
+        </h3>
+
+        <p class="text-neutral-400 leading-relaxed">
+          Live band showcase from a public event, highlighting stage arrangement and the group’s collective sound.
+        </p>
+      </div>
+    </a>
+
+  </div>
+
+</section>
+
+  <section id="portfolio" class="py-28 px-6 bg-gradient-to-b from-black to-[#120000]">
+    <div id="galeria" class="text-center">
+      <p class="uppercase tracking-[0.3em] text-red-200 text-sm mb-3">
+        Visual Expression
+      </p>
+
+      <h2 class="text-6xl text-white mb-6">Drawing Gallery</h2>
+
+      <p class="max-w-2xl mx-auto text-neutral-400 text-lg leading-relaxed mb-14">
+        A gallery focused on traditional drawings, sketchbook studies,
+        emotional illustrations, and artistic visual expression.
+      </p>
+
+      <div class="galeria">
+
+        <img src="imagenes/drawing1.jpg" alt="Drawing 1" onclick="abrirModal(this)">
+
+        <img src="imagenes/drawing2.jpg" alt="Drawing 2" onclick="abrirModal(this)">
+
+        <img src="imagenes/drawing3.jpg" alt="Drawing 3" onclick="abrirModal(this)">
+
+        <img src="imagenes/drawing4.jpg" alt="Drawing 4" onclick="abrirModal(this)">
+      </div>
+    </div>
+
+    <div id="modal" class="modal" onclick="cerrarModal()">
+      <img id="imagenGrande" alt="Imagen ampliada">
+    </div>
+  </section>
+
+  <section id="interests" class="max-w-6xl mx-auto px-6 py-24">
+    <div class="mb-16">
+      <p class="uppercase tracking-[0.3em] text-red-200 text-sm mb-3">
+        Identity & Vision
+      </p>
+
+      <h2 class="text-5xl text-white">Interests & Values</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="card rounded-3xl p-8">
+        <h3 class="text-2xl mb-4 text-white">Music & Storytelling</h3>
+        <p class="text-neutral-400 leading-relaxed">
+          Emotional artistic expression through sound, writing, and atmosphere.
+        </p>
+      </div>
+
+      <div class="card rounded-3xl p-8">
+        <h3 class="text-2xl mb-4 text-white">Psychology & Philosophy</h3>
+        <p class="text-neutral-400 leading-relaxed">
+          Interest in emotions, human behavior, introspection, and personal
+          growth.
+        </p>
+      </div>
+
+      <div class="card rounded-3xl p-8">
+        <h3 class="text-2xl mb-4 text-white">Visual Arts & Design</h3>
+        <p class="text-neutral-400 leading-relaxed">
+          Passion for sketching, aesthetics, cinematic imagery, and artistic
+          composition.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="video" class="border-t border-neutral-900 py-32 px-6">
+    <div class="max-w-5xl mx-auto text-center">
+      <p class="uppercase tracking-[0.3em] text-red-200 text-sm mb-3">
+        Future Presentation
+      </p>
+
+      <h2 class="text-6xl text-white mb-10">Admissions Video</h2>
+
+      <div class="relative rounded-[2rem] overflow-hidden border border-neutral-800 bg-neutral-950/70 backdrop-blur-xl shadow-2xl">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(74,15,26,0.3),transparent_60%)]"></div>
+
+        <div class="relative z-10 h-[400px] flex flex-col items-center justify-center px-6">
+          <div class="w-24 h-24 rounded-full border border-red-900 flex items-center justify-center mb-8 backdrop-blur-md">
+            <div class="w-0 h-0 border-l-[18px] border-l-neutral-200 border-y-[12px] border-y-transparent ml-1"></div>
+          </div>
+
+          <h3 class="text-4xl text-white mb-4">Coming Soon</h3>
+
+          <p class="max-w-2xl text-neutral-400 leading-relaxed text-lg">
+            This section will feature my future admissions presentation video,
+            showcasing my academic goals, artistic background, and personal
+            motivations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-neutral-900 py-10 text-center text-neutral-500 text-sm tracking-wide">
+    © 2026 Carlos Moreno Hernández — Modern Gothic Portfolio
+  </footer>
+<script>
+    function abrirModal(imagen) {
+      document.getElementById('modal').style.display = 'flex';
+      document.getElementById('imagenGrande').src = imagen.src;
+    }
+
+    function cerrarModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
