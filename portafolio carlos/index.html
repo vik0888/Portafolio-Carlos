@@ -9,8 +9,10 @@
   <meta name="description" content="Carlos Moreno Hernández - Creative Portfolio">
   <meta name="theme-color" content="#000000">
 
+  <!-- TAILWIND -->
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- GOOGLE FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -20,142 +22,159 @@
   >
 
   <style>
-    * {
-      box-sizing: border-box;
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
     }
 
-    html {
-      scroll-behavior: smooth;
+    html{
+      scroll-behavior:smooth;
     }
 
-    body {
-      margin: 0;
-      background: #000;
-      color: #e5e5e5;
-      font-family: 'Montserrat', sans-serif;
-      overflow-x: hidden;
+    body{
+      background:#000;
+      color:#e5e5e5;
+      font-family:'Montserrat',sans-serif;
+      overflow-x:hidden;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
+    img{
+      max-width:100%;
+      display:block;
     }
 
-    h1, h2, h3 {
-      font-family: 'Cinzel', serif;
+    h1,h2,h3{
+      font-family:'Cinzel',serif;
     }
 
-    .grain {
-      position: fixed;
-      inset: 0;
-      opacity: 0.05;
-      pointer-events: none;
-      background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
-      z-index: 1;
+    .grain{
+      position:fixed;
+      inset:0;
+      opacity:.05;
+      pointer-events:none;
+      z-index:1;
+      background-image:url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
     }
 
-    .hero-overlay {
-      background: linear-gradient(
+    .hero-overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(
         to bottom,
-        rgba(0,0,0,0.4),
-        rgba(0,0,0,0.8),
+        rgba(0,0,0,.35),
+        rgba(0,0,0,.75),
         #000
       );
     }
 
-    .card {
-      background: rgba(10,10,10,0.75);
-      border: 1px solid #262626;
-      backdrop-filter: blur(10px);
-      transition: 0.4s ease;
+    .card{
+      background:rgba(10,10,10,.72);
+      border:1px solid #262626;
+      backdrop-filter:blur(10px);
+      transition:.4s ease;
     }
 
-    .card:hover {
-      border-color: #5d0f1f;
-      transform: translateY(-4px);
+    .card:hover{
+      border-color:#5d0f1f;
+      transform:translateY(-4px);
     }
 
-    .galeria {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
+    .galeria{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:22px;
+      max-width:1200px;
+      margin:auto;
     }
 
-    .galeria img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-      border-radius: 22px;
-      cursor: pointer;
-      transition: 0.3s ease;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+    .galeria img{
+      width:100%;
+      height:280px;
+      object-fit:cover;
+      border-radius:24px;
+      cursor:pointer;
+      transition:.35s ease;
+      box-shadow:0 5px 20px rgba(0,0,0,.4);
     }
 
-    .galeria img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    .galeria img:hover{
+      transform:scale(1.03);
+      box-shadow:0 12px 30px rgba(0,0,0,.55);
     }
 
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.92);
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-      padding: 20px;
+    .modal{
+      display:none;
+      position:fixed;
+      inset:0;
+      z-index:999;
+      background:rgba(0,0,0,.92);
+      justify-content:center;
+      align-items:center;
+      padding:20px;
     }
 
-    .modal img {
-      max-width: 90%;
-      max-height: 90vh;
-      border-radius: 20px;
-      animation: zoom 0.3s ease;
+    .modal img{
+      max-width:90%;
+      max-height:90vh;
+      border-radius:20px;
+      animation:zoom .3s ease;
     }
 
-    .preview {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      transition: 0.3s ease;
-    }
-
-    .preview:hover {
-      transform: scale(1.02);
-    }
-
-    @keyframes zoom {
-      from {
-        transform: scale(0.7);
-        opacity: 0;
+    @keyframes zoom{
+      from{
+        transform:scale(.7);
+        opacity:0;
       }
 
-      to {
-        transform: scale(1);
-        opacity: 1;
+      to{
+        transform:scale(1);
+        opacity:1;
       }
     }
 
-    @media (max-width: 768px) {
-      nav .desktop-menu {
-        display: none;
+    .publication-image{
+      width:100%;
+      height:240px;
+      object-fit:cover;
+      transition:.35s ease;
+    }
+
+    .publication-image:hover{
+      transform:scale(1.02);
+    }
+
+    @media(max-width:768px){
+
+      .desktop-menu{
+        display:none;
       }
 
-      h1 {
-        word-break: break-word;
+      .hero-title{
+        font-size:3rem;
+        line-height:1.1;
       }
+
+      .profile-card{
+        width:100%;
+        max-width:320px;
+        height:420px;
+      }
+
     }
+
   </style>
 </head>
 
 <body>
 
+  <!-- GRAIN -->
   <div class="grain"></div>
 
+  <!-- NAVBAR -->
   <nav class="fixed top-0 left-0 w-full z-50 bg-black/70 backdrop-blur-xl border-b border-neutral-800">
+
     <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
 
       <h1 class="text-2xl tracking-[0.3em] text-white">
@@ -163,39 +182,48 @@
       </h1>
 
       <div class="desktop-menu hidden md:flex gap-8 text-sm tracking-wide">
-        <a href="#home" class="hover:text-red-300 transition">Home</a>
-        <a href="#resume" class="hover:text-red-300 transition">Resume</a>
-        <a href="#statement" class="hover:text-red-300 transition">Statement</a>
-        <a href="#work" class="hover:text-red-300 transition">Work</a>
-        <a href="#publications" class="hover:text-red-300 transition">Publications</a>
-        <a href="#portfolio" class="hover:text-red-300 transition">Gallery</a>
-        <a href="#interests" class="hover:text-red-300 transition">Interests</a>
-        <a href="#video" class="hover:text-red-300 transition">Video</a>
+
+        <a href="#home" class="hover:text-red-300 transition">
+          Home
+        </a>
+
+        <a href="#publications" class="hover:text-red-300 transition">
+          Publications
+        </a>
+
+        <a href="#portfolio" class="hover:text-red-300 transition">
+          Gallery
+        </a>
+
       </div>
 
     </div>
+
   </nav>
 
+  <!-- HERO -->
   <section
     id="home"
     class="relative min-h-screen flex items-center justify-center px-6 text-center overflow-hidden"
   >
 
+    <!-- BACKGROUND -->
     <img
-      src="./imagenes/profile.jpg"
-      class="absolute inset-0 w-full h-full object-cover opacity-20"
+      src="./imagenes/background.jpg"
       alt="Background"
+      class="absolute inset-0 w-full h-full object-cover opacity-20"
     >
 
-    <div class="absolute inset-0 hero-overlay"></div>
+    <div class="hero-overlay"></div>
 
+    <!-- CONTENT -->
     <div class="relative z-10 max-w-5xl pt-32">
 
       <p class="uppercase tracking-[0.4em] text-red-200 text-sm mb-6">
         Creative Portfolio
       </p>
 
-      <h1 class="text-5xl md:text-7xl font-light tracking-wide leading-[1.15] text-white mb-10">
+      <h1 class="hero-title text-5xl md:text-7xl font-light tracking-wide text-white mb-10">
         CARLOS MORENO
         <br>
         HERNÁNDEZ
@@ -212,15 +240,21 @@
         and creative expression.
       </p>
 
+      <!-- QUOTE -->
       <div class="mt-12 max-w-3xl mx-auto p-6 rounded-3xl border border-red-900/30 bg-black/40 backdrop-blur-md shadow-2xl">
+
         <p class="italic text-lg md:text-xl text-neutral-300">
-          "Growth is not about avoiding mistakes, but about confronting them,
-          adapting, and moving forward with greater awareness."
+          "Growth is not about avoiding mistakes,
+          but about confronting them, adapting,
+          and moving forward with greater awareness."
         </p>
+
       </div>
 
+      <!-- PROFILE IMAGE -->
       <div class="mt-20 flex justify-center">
-        <div class="relative w-[320px] h-[420px] rounded-[2rem] overflow-hidden border border-neutral-800 shadow-2xl">
+
+        <div class="profile-card relative w-[320px] h-[420px] rounded-[2rem] overflow-hidden border border-neutral-800 shadow-2xl">
 
           <img
             src="./imagenes/profile.jpg"
@@ -231,6 +265,7 @@
           <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
 
           <div class="absolute bottom-0 left-0 w-full p-6 text-left">
+
             <h3 class="text-2xl text-white font-light tracking-wide">
               Carlos Moreno Hernández
             </h3>
@@ -238,15 +273,132 @@
             <p class="text-neutral-300 text-sm mt-2 tracking-wide">
               Music • Psychology • Storytelling
             </p>
+
           </div>
 
         </div>
+
       </div>
 
     </div>
+
   </section>
 
-  <section id="portfolio" class="py-28 px-6 bg-gradient-to-b from-black to-[#120000]">
+  <!-- PUBLICATIONS -->
+  <section
+    id="publications"
+    class="max-w-7xl mx-auto px-6 py-28"
+  >
+
+    <div class="text-center mb-16">
+
+      <p class="uppercase tracking-[0.3em] text-red-200 text-sm mb-3">
+        Social & Creative Presence
+      </p>
+
+      <h2 class="text-5xl text-white mb-6">
+        Featured Publications
+      </h2>
+
+      <p class="max-w-2xl mx-auto text-neutral-400 text-lg leading-relaxed">
+        A collection of artistic and musical publications
+        shared through social media and creative projects.
+      </p>
+
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- CARD 1 -->
+      <a
+        href="https://www.instagram.com/p/DSFx_S0EcjG/"
+        target="_blank"
+        class="card rounded-3xl overflow-hidden group"
+      >
+
+        <img
+          src="./imagenes/publication1.jpg"
+          alt="Publication 1"
+          class="publication-image"
+        >
+
+        <div class="p-6">
+
+          <h3 class="text-2xl text-white mb-3 group-hover:text-red-200 transition">
+            Live Performance
+          </h3>
+
+          <p class="text-neutral-400 leading-relaxed">
+            Concert stage performance with live instrumentation and dynamic visual atmosphere.
+          </p>
+
+        </div>
+
+      </a>
+
+      <!-- CARD 2 -->
+      <a
+        href="https://www.instagram.com/p/DRSODETEZVq/"
+        target="_blank"
+        class="card rounded-3xl overflow-hidden group"
+      >
+
+        <img
+          src="./imagenes/publication2.jpg"
+          alt="Publication 2"
+          class="publication-image"
+        >
+
+        <div class="p-6">
+
+          <h3 class="text-2xl text-white mb-3 group-hover:text-red-200 transition">
+            Band Portrait
+          </h3>
+
+          <p class="text-neutral-400 leading-relaxed">
+            Group portrait capturing the visual identity and aesthetic direction of the band.
+          </p>
+
+        </div>
+
+      </a>
+
+      <!-- CARD 3 -->
+      <a
+        href="https://www.instagram.com/p/DRdo36-jDLN/"
+        target="_blank"
+        class="card rounded-3xl overflow-hidden group"
+      >
+
+        <img
+          src="./imagenes/publication3.jpg"
+          alt="Publication 3"
+          class="publication-image"
+        >
+
+        <div class="p-6">
+
+          <h3 class="text-2xl text-white mb-3 group-hover:text-red-200 transition">
+            Outdoor Session
+          </h3>
+
+          <p class="text-neutral-400 leading-relaxed">
+            Public live session featuring the full band and collaborative performance energy.
+          </p>
+
+        </div>
+
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- GALLERY -->
+  <section
+    id="portfolio"
+    class="py-28 px-6 bg-gradient-to-b from-black to-[#120000]"
+  >
 
     <div class="text-center">
 
@@ -257,6 +409,11 @@
       <h2 class="text-6xl text-white mb-6">
         Drawing Gallery
       </h2>
+
+      <p class="max-w-2xl mx-auto text-neutral-400 text-lg leading-relaxed mb-14">
+        Traditional drawings, sketchbook studies,
+        emotional illustrations, and artistic expression.
+      </p>
 
       <div class="galeria">
 
@@ -288,24 +445,48 @@
 
     </div>
 
-    <div id="modal" class="modal" onclick="cerrarModal()">
-      <img id="imagenGrande" alt="Expanded image">
+    <!-- MODAL -->
+    <div
+      id="modal"
+      class="modal"
+      onclick="cerrarModal()"
+    >
+
+      <img
+        id="imagenGrande"
+        alt="Expanded image"
+      >
+
     </div>
 
   </section>
 
+  <!-- FOOTER -->
+  <footer class="border-t border-neutral-900 py-10 text-center text-neutral-500 text-sm tracking-wide">
+
+    © 2026 Carlos Moreno Hernández — Portfolio
+
+  </footer>
+
+  <!-- SCRIPT -->
   <script>
-    function abrirModal(imagen) {
+
+    function abrirModal(imagen){
+
       const modal = document.getElementById("modal");
       const imagenGrande = document.getElementById("imagenGrande");
 
       imagenGrande.src = imagen.src;
       modal.style.display = "flex";
+
     }
 
-    function cerrarModal() {
+    function cerrarModal(){
+
       document.getElementById("modal").style.display = "none";
+
     }
+
   </script>
 
 </body>
